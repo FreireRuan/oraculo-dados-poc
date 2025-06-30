@@ -1,10 +1,11 @@
 import streamlit as st
 from athena_loader import executar_athena_df
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain.chains import LLMChain
 from langchain_experimental.agents import create_pandas_dataframe_agent
 from langchain.memory import ConversationBufferMemory
 from langchain.prompts import PromptTemplate
+#from langchain_openai import ChatOpenAI
 
 # Configuração da página
 st.set_page_config(page_title="🤖 Oráculo de Dados - MaisTODOS")
