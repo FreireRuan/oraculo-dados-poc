@@ -41,8 +41,8 @@ path_file_onboarding = st.secrets["path_file_onboarding"]
 @st.cache_data # Carrega o DataFrame de onboarding
 def load_df():
     df = pd.read_csv(path_file_onboarding)  
-    df['dt_ativacao'] = pd.to_datetime(df['dt_ativacao'], format='%d/%m/%Y', errors='coerce')
-    df['dt_fim_onboarding'] = pd.to_datetime(df['dt_fim_onboarding'], format='%d/%m/%Y', errors='coerce')
+    df['dt_ativacao'] = pd.to_datetime(df['dt_ativacao'], format='%Y-%m-%d', errors='coerce')
+    df['dt_fim_onboarding'] = pd.to_datetime(df['dt_fim_onboarding'], format='%Y-%m-%d', errors='coerce')
     df['tpv_meta'] = df['tpv_meta'].astype(float)
     df['vendas_meta'] = df['vendas_meta'].astype(float)
     df['tpv'] = df['tpv'].astype(float)
