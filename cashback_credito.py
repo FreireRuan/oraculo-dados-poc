@@ -41,6 +41,20 @@ path_file_onboarding = st.secrets["path_file_onboarding"]
 @st.cache_data # Carrega o DataFrame de onboarding
 def load_df():
     df = pd.read_csv(path_file_onboarding)  
+    df['dt_ativacao'] = pd.to_datetime(df['dt_ativacao'], format='%d/%m/%Y', errors='coerce')
+    df['dt_fim_onboarding'] = pd.to_datetime(df['dt_fim_onboarding'], format='%d/%m/%Y', errors='coerce')
+    df['tpv_meta'] = df['tpv_meta'].str.replace(',', '.').astype(float)
+    df['vendas_meta'] = df['vendas_meta'].str.replace(',', '.').astype(float)
+    df['tpv'] = df['tpv'].astype(float)
+    df['vlr_cashback'] = df['vlr_cashback'].astype(float)
+    df['vendas'] = df['vendas'].astype(float)
+    df['usuarios_unicos'] = df['usuarios_unicos'].astype(int)
+    df['perc_tpv'] = df['perc_tpv'].astype(float)
+    df['perc_venda'] = df['perc_venda'].astype(float)
+    df['ticket_medio'] = df['ticket_medio'].astype(float)
+    df['vendas_usuarios'] = df['vendas_usuarios'].astype(float)
+    df['receita_p_transacao'] = df['receita_p_transacao'].astype(float)
+    df['nv_engaj_score'] = df['nv_engaj_score'].astype(float)
     return df
 
 @st.cache_data
