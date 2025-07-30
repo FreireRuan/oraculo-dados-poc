@@ -4,3 +4,4 @@ credencial.env
 secrets.toml
 fl_report_credito_refactor*.csv
 onboarding.csv
+secrets.toml
