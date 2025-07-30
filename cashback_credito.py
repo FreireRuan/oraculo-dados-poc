@@ -41,6 +41,7 @@ path_file_onboarding = st.secrets["path_file_onboarding"]
 @st.cache_data # Carrega o DataFrame de onboarding
 def load_df():
     df = pd.read_csv(path_file_onboarding)  
+    df['dt_ativacao'] = pd.to_datetime(df['dt_ativacao'], format='%d/%m/%Y', errors='coerce')
     return df
 
 @st.cache_data
