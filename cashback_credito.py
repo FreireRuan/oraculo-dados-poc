@@ -188,7 +188,7 @@ def consulta_credito(pergunta, contexto_negocio='analista de credito'):
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-st.title("Oráculo Mais Todos")
+st.title("Agente de Dados MaisTODOS")
 
 produto = st.selectbox("Escolha o produto:", ["crédito", "cashback"])
 
