@@ -96,10 +96,11 @@ with st.form(key="form_pergunta", clear_on_submit=True):
     submitted = st.form_submit_button("Enviar")
 
 if submitted and pergunta:
-    if produto == "Crédito":
-        resposta = consulta_credito(pergunta)
-    if produto == "Cashback":
-        resposta = consulta_cashback_onboarding(pergunta)
+    with st.spinner("⏳ Oráculo está processando sua resposta..."):
+        if produto == "Crédito":
+            resposta = consulta_credito(pergunta)
+        if produto == "Cashback":
+            resposta = consulta_cashback_onboarding(pergunta)
     # Adiciona ao histórico
     st.session_state.chat_history.append({
         "pergunta": pergunta,
