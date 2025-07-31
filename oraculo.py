@@ -7,7 +7,7 @@ password = st.secrets["password_streamlit"]
 # === Proteção por senha ===
 def check_password():
     def password_entered():
-        if st.session_state["password"] == "password":
+        if st.session_state["password"] == password:
             st.session_state["password_correct"] = True
         else:
             st.session_state["password_correct"] = False
