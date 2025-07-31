@@ -55,25 +55,40 @@ for msg in st.session_state.chat_history:
         """,
         unsafe_allow_html=True
     )
-    # Resposta do Oráculo (bolha verde claro, fonte preta)
-    st.markdown(
-        f"""
-        <div style="
-            background-color:#E6F4EA;
-            border-radius:12px;
-            padding:14px 18px;
-            margin-bottom:8px;
-            margin-left:24px;
-            color:#155724;
-            width:fit-content;
-            max-width:88%;
-            font-size:1.08rem;
-            box-shadow:0 2px 8px #a3c9b7aa;">
-            <b>ORÁCULO 🧑‍🚀:</b><br>{msg['resposta']}
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    # Resposta do Oráculo (inclui execução de gráficos)
+    def render_resposta(resposta):
+        import re
+        import matplotlib.pyplot as plt
+        # Exibe a resposta em markdown (texto explicativo)
+        st.markdown(
+            f"""
+            <div style="
+                background-color:#E6F4EA;
+                border-radius:12px;
+                padding:14px 18px;
+                margin-bottom:8px;
+                margin-left:24px;
+                color:#155724;
+                width:fit-content;
+                max-width:88%;
+                font-size:1.08rem;
+                box-shadow:0 2px 8px #a3c9b7aa;">
+                <b>ORÁCULO 🧑‍🚀:</b><br>{resposta}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        # Procura blocos de código python na resposta
+        code_blocks = re.findall(r"```python(.*?)```", resposta, re.DOTALL)
+        for code in code_blocks:
+            try:
+                exec(code, globals())
+                st.pyplot(plt.gcf())
+                plt.clf()
+            except Exception as e:
+                st.warning(f"Erro ao executar código do agente: {e}")
+
+    render_resposta(msg['resposta'])
 
 # Aqui começa o form
 with st.form(key="form_pergunta", clear_on_submit=True):
