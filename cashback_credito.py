@@ -60,6 +60,19 @@ def load_df():
 @st.cache_data
 def load_df_credito():
     df_credito = pd.read_csv(path_file_credito)
+    df['cliente_nascimento'] = pd.to_datetime(df['cliente_nascimento'], format='%Y-%m-%d', errors='coerce').dt.date
+    df['cliente_idade'] = df['cliente_idade'].astype(int)
+    df['cliente_score'] = df['cliente_score'].astype(int)
+    df['cliente_renda_mensal'] = df['cliente_renda_mensal'].astype(float)
+    df['cliente_patrimonio'] = df['cliente_patrimonio'].astype(float)
+    df['cliente_tempo_servico'] = df['cliente_tempo_servico'].astype(int)
+    df['vlr_requerido'] = df['vlr_requerido'].astype(float)
+    df['vlr_total'] = df['vlr_total'].astype(float)
+    df['cnpj_num'] = df['cnpj_num'].astype(int)
+    df['dt_criacao_pre_proposta'] = pd.to_datetime(df['dt_criacao_pre_proposta'], format='%Y-%m-%d', errors='coerce').dt.date
+    df['dt_criacao_proposta'] = pd.to_datetime(df['dt_criacao_proposta'], format='%Y-%m-%d', errors='coerce').dt.date
+    df['dt_criacao_oferta'] = pd.to_datetime(df['dt_criacao_oferta'], format='%Y-%m-%d', errors='coerce').dt.date
+    df['dt_merge'] = pd.to_datetime(df['dt_merge'], format='%Y-%m-%d', errors='coerce').dt.date
     return df_credito
 
 # Cache para modelo e memória
