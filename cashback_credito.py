@@ -62,7 +62,7 @@ def load_df_credito():
     df_credito = pd.read_csv(path_file_credito)
     df_credito['cliente_nascimento'] = pd.to_datetime(df_credito['cliente_nascimento'], format='%Y-%m-%d', errors='coerce').dt.date
     df_credito['cliente_idade'] = df_credito['cliente_idade'].astype(int)
-    df_credito['cliente_score'] = df_credito['cliente_score'].astype(int)
+    # df_credito['cliente_score'] = df_credito['cliente_score'].astype(int)
     df_credito['cliente_renda_mensal'] = df_credito['cliente_renda_mensal'].astype(float)
     df_credito['cliente_patrimonio'] = df_credito['cliente_patrimonio'].astype(float)
     df_credito['cliente_tempo_servico'] = df_credito['cliente_tempo_servico'].astype(int)
