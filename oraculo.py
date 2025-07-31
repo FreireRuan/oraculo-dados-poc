@@ -35,7 +35,6 @@ st.subheader("Autores: Ruan Freire & Samuel Ferreira")
 
 produto = st.selectbox("Escolha o produto:", ["Crédito", "Cashback"])
 
-
 for msg in st.session_state.chat_history:
     # Pergunta do usuário (bolha clara, fonte escura)
     st.markdown(
