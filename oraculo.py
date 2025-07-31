@@ -32,45 +32,46 @@ st.title("Agente de Dados MaisTODOS")
 
 produto = st.selectbox("Escolha o produto:", ["Crédito", "Cashback"])
 
-# Exibe o histórico do chat
+
 for msg in st.session_state.chat_history:
-    cols = st.columns([2, 2])
-    with cols[0]:
-        st.markdown(
-            f"""
-            <div style="
-                text-align:left;
-                background-color:#F0F2F6;
-                border-radius:8px;
-                padding:10px;
-                margin-bottom:2px
-                color:#000000
+    # Pergunta do usuário (bolha clara, fonte escura)
+    st.markdown(
+        f"""
+        <div style="
+            background-color:#E3ECFA;
+            border-radius:8px;
+            padding:10px 16px;
+            margin-bottom:4px;
+            margin-top:12px;
+            color:#1a237e;
+            font-weight:500;
+            width:fit-content;
+            max-width:80%;
             ">
-                <b>Você:</b><br>{msg['pergunta']}
-                </div>
-            """,
-            unsafe_allow_html=True
-        )
-    with cols[1]:
-        st.markdown(
-            f"""
-            <div style="
-                text-align:left;
-                background-color:#E6F4EA;
-                border-radius:12px;
-                padding:18px 16px;
-                margin-bottom:8px;
-                min-width:300px;
-                max-width:520px;
-                font-size:1.1rem;
-                box-shadow:0 2px 8px #a3c9b7aa;
-                color:#000000
-            ">
-                <b>Oráculo:</b><br>{msg['resposta']}
-                </div>
-            """,
-            unsafe_allow_html=True
-        )
+            <b>Você 👤:</b><br>{msg['pergunta']}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    # Resposta do Oráculo (bolha verde claro, fonte preta)
+    st.markdown(
+        f"""
+        <div style="
+            background-color:#E6F4EA;
+            border-radius:12px;
+            padding:14px 18px;
+            margin-bottom:8px;
+            margin-left:24px;
+            color:#155724;
+            width:fit-content;
+            max-width:88%;
+            font-size:1.08rem;
+            box-shadow:0 2px 8px #a3c9b7aa;">
+            <b>Oráculo 🤖:</b><br>{msg['resposta']}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 # Aqui começa o form
 with st.form(key="form_pergunta", clear_on_submit=True):
@@ -87,4 +88,4 @@ if submitted and pergunta:
         "pergunta": pergunta,
         "resposta": resposta
     })
-    st.experimental_rerun()
+    st.rerun()
