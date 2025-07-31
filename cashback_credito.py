@@ -78,7 +78,7 @@ def load_df_credito():
 # Cache para modelo e memória
 @st.cache_resource
 def get_model_and_memory():
-    chat = ChatOpenAI(model='gpt-3.5-turbo-0125', temperature=0.2)
+    chat = ChatOpenAI(model='gpt-4.1')
     memory = ConversationBufferMemory(return_messages=True, memory_key='chat_history')
     return chat, memory
 
