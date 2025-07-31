@@ -31,6 +31,7 @@ if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
 st.title("Agente de Dados MaisTODOS")
+st.subheader("Autores: Ruan Freire & Samuel Ferreira")
 
 produto = st.selectbox("Escolha o produto:", ["Crédito", "Cashback"])
 
@@ -96,7 +97,7 @@ with st.form(key="form_pergunta", clear_on_submit=True):
     submitted = st.form_submit_button("Enviar")
 
 if submitted and pergunta:
-    with st.spinner("⏳ Oráculo está processando sua resposta..."):
+    with st.spinner("⏳ Agente está processando sua resposta..."):
         if produto == "Crédito":
             resposta = consulta_credito(pergunta)
         if produto == "Cashback":
