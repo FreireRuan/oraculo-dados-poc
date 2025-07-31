@@ -2,10 +2,12 @@ import streamlit as st
 from credit_agent import consulta_credito
 from cashback_agent import consulta_cashback_onboarding 
 
+password = st.secrets["password_streamlit"]
+
 # === Proteção por senha ===
 def check_password():
     def password_entered():
-        if st.session_state["password"] == "MaisTODOS":
+        if st.session_state["password"] == "password":
             st.session_state["password_correct"] = True
         else:
             st.session_state["password_correct"] = False
@@ -48,7 +50,7 @@ for msg in st.session_state.chat_history:
             width:fit-content;
             max-width:80%;
             ">
-            <b>Você 👤:</b><br>{msg['pergunta']}
+            <b>VOCÊ 👤:</b><br>{msg['pergunta']}
         </div>
         """,
         unsafe_allow_html=True
@@ -67,7 +69,7 @@ for msg in st.session_state.chat_history:
             max-width:88%;
             font-size:1.08rem;
             box-shadow:0 2px 8px #a3c9b7aa;">
-            <b>Oráculo 🤖:</b><br>{msg['resposta']}
+            <b>ORÁCULO 🧑‍🚀:</b><br>{msg['resposta']}
         </div>
         """,
         unsafe_allow_html=True
