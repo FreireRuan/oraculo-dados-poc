@@ -65,7 +65,7 @@ def load_df_credito():
     # df_credito['cliente_score'] = df_credito['cliente_score'].astype(int)
     df_credito['cliente_renda_mensal'] = df_credito['cliente_renda_mensal'].astype(float)
     df_credito['cliente_patrimonio'] = df_credito['cliente_patrimonio'].astype(float)
-    df_credito['cliente_tempo_servico'] = df_credito['cliente_tempo_servico'].astype(int)
+    # df_credito['cliente_tempo_servico'] = df_credito['cliente_tempo_servico'].astype(int)
     df_credito['vlr_requerido'] = df_credito['vlr_requerido'].astype(float)
     df_credito['vlr_total'] = df_credito['vlr_total'].astype(float)
     df_credito['cnpj_num'] = df_credito['cnpj_num'].astype(int)
