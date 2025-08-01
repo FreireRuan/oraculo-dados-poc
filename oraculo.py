@@ -11,10 +11,10 @@ def check_password():
     ## Bem-vindo ao Agente de Dados MaisTODOS!  
     ### Instruções de uso:
     - Escolha o produto (Cashback ou Crédito) após o login.
-    - É sugestivo usar o primeiro prompt abaixo para ganhar entendimento sobre os agentes e os dados que o compõem:
-        "Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?"   
-    - Após, fique aberto para realizar perguntas de negócio ou técnicas relacionadas aos produtos.
-    - Aguarde o processamento e veja a resposta do Oráculo. :)
+    - É sugestivo usar o primeiro prompt abaixo para ganhar entendimento sobre os agentes e os dados que o compõem:\n
+        > "Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?"  \n 
+    - Após, fique aberto para realizar novas perguntas de negócio ou técnicas relacionadas aos produtos.
+    - Aguarde o processamento e veja a resposta do Oráculo.    :)
     ---
     """, unsafe_allow_html=True)
 
