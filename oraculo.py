@@ -12,7 +12,7 @@ def check_password():
     ### Instruções de uso:
     - Escolha o produto (Cashback ou Crédito) após o login.
     - É sugestivo usar o primeiro prompt abaixo para ganhar entendimento sobre os agentes e os dados que o compõem:\n
-        > "Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?"  \n 
+        > Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?  \n 
     - Após, fique aberto para realizar novas perguntas de negócio ou técnicas relacionadas aos produtos.
     - Aguarde o processamento e veja a resposta do Oráculo.    :)
     ---
@@ -89,7 +89,11 @@ for msg in st.session_state.chat_history:
 
 # Aqui começa o form
 with st.form(key="form_pergunta", clear_on_submit=True):
-    pergunta = st.text_input("Digite sua pergunta:", key="input_pergunta")
+    if len(st.session_state.chat_history) == 0:
+        valor_sugerido = "Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?"
+    else:
+        valor_sugerido = ""
+    pergunta = st.text_input("Digite sua pergunta:", key="input_pergunta", value=valor_sugerido)
     submitted = st.form_submit_button("Enviar")
 
 if submitted and pergunta:
