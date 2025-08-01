@@ -4,8 +4,19 @@ from cashback_agent import consulta_cashback_onboarding
 
 password = st.secrets["password_streamlit"]
 
-# === Proteção por senha ===
+# === Tela de proteção por senha ===
 def check_password():
+    # Instruções de uso
+    st.markdown("""
+    ## Bem-vindo ao Agente de Dados MaisTODOS!  
+    - Escolha o produto (Cashback ou Crédito) após o login.
+    - É sugestivo usar o primeiro prompt abaixo para ganhar entendimento sobre os agentes e os dados que o compõem:
+        "Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?"   
+    - Após, fique aberto para realizar perguntas de negócio ou técnicas relacionadas aos produtos.
+    - Aguarde o processamento e veja a resposta do Oráculo. :)
+    ---
+    """, unsafe_allow_html=True)
+
     def password_entered():
         if st.session_state["password"] == password:
             st.session_state["password_correct"] = True
@@ -33,7 +44,7 @@ if "chat_history" not in st.session_state:
 st.title("Agente de Dados MaisTODOS")
 st.subheader("Criado por: Ruan Freire & Samuel Ferreira")
 
-produto = st.selectbox("Escolha o produto:", ["Crédito", "Cashback"])
+produto = st.selectbox("Escolha o produto:", ["Cashback", "Crédito"])
 
 for msg in st.session_state.chat_history:
     # Pergunta do usuário (bolha clara, fonte escura)
