@@ -117,7 +117,6 @@ if submitted and pergunta:
             resposta, figura = consulta_credito(pergunta)
         if produto == "Cashback":
             resposta, figura = consulta_cashback_onboarding(pergunta)
-    # Adiciona ao histórico
     st.session_state.chat_history.append({
         "pergunta": pergunta,
         "resposta": resposta,
