@@ -60,7 +60,7 @@ st.subheader("Criado por: Ruan Freire & Samuel Ferreira")
 produto = st.selectbox("Escolha o produto:", ["Cashback", "Crédito"])
 
 for msg in st.session_state.chat_history:
-    # Pergunta do usuário
+    # Pergunta do usuário (bolha clara, fonte escura)
     st.markdown(
         f"""
         <div style="
@@ -79,11 +79,12 @@ for msg in st.session_state.chat_history:
         """,
         unsafe_allow_html=True
     )
-    # Exibe a resposta em markdown
+    # Exibe a resposta em markdown (texto explicativo)
     st.markdown(
         f"""
-        <div style="background-color:#E6F4EA; 
-            border-radius:12px; 
+        <div style="
+            background-color:#E6F4EA;
+            border-radius:12px;
             padding:14px 18px;
             margin-bottom:8px;
             margin-left:24px;
@@ -91,16 +92,12 @@ for msg in st.session_state.chat_history:
             width:fit-content;
             max-width:88%;
             font-size:1.08rem;
-            box-shadow:0 2px 8px #a3c9b7aa;
-            ">
+            box-shadow:0 2px 8px #a3c9b7aa;">
             <b>ORÁCULO 🧑‍🚀:</b><br>{msg['resposta']}
         </div>
         """,
         unsafe_allow_html=True
     )
-    # Exibe o gráfico, se houver
-    if msg.get("figura") is not None:
-        st.pyplot(msg["figura"])
 
 # Aqui começa o form
 with st.form(key="form_pergunta", clear_on_submit=True):
@@ -114,12 +111,12 @@ with st.form(key="form_pergunta", clear_on_submit=True):
 if submitted and pergunta:
     with st.spinner("⏳ Agente está processando sua resposta..."):
         if produto == "Crédito":
-            resposta, figura = consulta_credito(pergunta)
+            resposta = consulta_credito(pergunta)
         if produto == "Cashback":
-            resposta, figura = consulta_cashback_onboarding(pergunta)
+            resposta = consulta_cashback_onboarding(pergunta)
+    # Adiciona ao histórico
     st.session_state.chat_history.append({
         "pergunta": pergunta,
-        "resposta": resposta,
-        "figura": figura
+        "resposta": resposta
     })
     st.rerun()
