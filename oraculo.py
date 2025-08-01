@@ -6,18 +6,6 @@ password = st.secrets["password_streamlit"]
 
 # === Tela de proteção por senha ===
 def check_password():
-    # Instruções de uso
-    st.markdown("""
-    ## Bem-vindo ao Agente de Dados MaisTODOS!  
-    ### Instruções de uso:
-    - Escolha o produto (Cashback ou Crédito) após o login.
-    - É sugestivo usar o primeiro prompt abaixo para ganhar entendimento sobre os agentes e os dados que o compõem:\n
-        > Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?  \n 
-    - Após, fique aberto para realizar novas perguntas de negócio ou técnicas relacionadas aos produtos.
-    - Aguarde o processamento e veja a resposta do Oráculo.    :)
-    ---
-    """, unsafe_allow_html=True)
-
     def password_entered():
         if st.session_state["password"] == password:
             st.session_state["password_correct"] = True
@@ -25,12 +13,34 @@ def check_password():
             st.session_state["password_correct"] = False
 
     if "password_correct" not in st.session_state:
+        st.markdown("""
+        ## Bem-vindo ao Agente de Dados MaisTODOS!  
+        ### Instruções de uso:
+        - Escolha o produto (Cashback ou Crédito) após o login.
+        - É sugestivo usar o primeiro prompt abaixo para ganhar entendimento sobre os agentes e os dados que o compõem:\n
+            > Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?  \n 
+        - Após, fique aberto para realizar novas perguntas de negócio ou técnicas relacionadas aos produtos.
+        - Aguarde o processamento e veja a resposta do Oráculo.    :)
+        ---
+        """, unsafe_allow_html=True)
         st.text_input("Senha:", type="password", on_change=password_entered, key="password")
         return False
+
     elif not st.session_state["password_correct"]:
+        st.markdown("""
+        ## Bem-vindo ao Agente de Dados MaisTODOS!  
+        ### Instruções de uso:
+        - Escolha o produto (Cashback ou Crédito) após o login.
+        - É sugestivo usar o primeiro prompt abaixo para ganhar entendimento sobre os agentes e os dados que o compõem:\n
+            > Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?  \n 
+        - Após, fique aberto para realizar novas perguntas de negócio ou técnicas relacionadas aos produtos.
+        - Aguarde o processamento e veja a resposta do Oráculo.    :)
+        ---
+        """, unsafe_allow_html=True)
         st.text_input("Senha:", type="password", on_change=password_entered, key="password")
         st.error("Senha incorreta")
         return False
+
     else:
         return True
 
