@@ -21,6 +21,7 @@ def check_password():
             > Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?  \n 
         - Após, fique aberto para realizar novas perguntas de negócio ou técnicas relacionadas aos produtos.
         - Aguarde o processamento e veja a resposta do Oráculo.    :)
+        #### Criado por: Ruan Freire e Samuel Ferreira
         ---
         """, unsafe_allow_html=True)
         st.text_input("Senha:", type="password", on_change=password_entered, key="password")
@@ -35,6 +36,7 @@ def check_password():
             > Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?  \n 
         - Após, fique aberto para realizar novas perguntas de negócio ou técnicas relacionadas aos produtos.
         - Aguarde o processamento e veja a resposta do Oráculo.    :)
+        #### Criado por: Ruan Freire e Samuel Ferreira
         ---
         """, unsafe_allow_html=True)
         st.text_input("Senha:", type="password", on_change=password_entered, key="password")
@@ -58,7 +60,7 @@ st.subheader("Criado por: Ruan Freire & Samuel Ferreira")
 produto = st.selectbox("Escolha o produto:", ["Cashback", "Crédito"])
 
 for msg in st.session_state.chat_history:
-    # Pergunta do usuário (bolha clara, fonte escura)
+    # Pergunta do usuário
     st.markdown(
         f"""
         <div style="
@@ -77,12 +79,11 @@ for msg in st.session_state.chat_history:
         """,
         unsafe_allow_html=True
     )
-    # Exibe a resposta em markdown (texto explicativo)
+    # Exibe a resposta em markdown
     st.markdown(
         f"""
-        <div style="
-            background-color:#E6F4EA;
-            border-radius:12px;
+        <div style="background-color:#E6F4EA; 
+            border-radius:12px; 
             padding:14px 18px;
             margin-bottom:8px;
             margin-left:24px;
@@ -90,12 +91,16 @@ for msg in st.session_state.chat_history:
             width:fit-content;
             max-width:88%;
             font-size:1.08rem;
-            box-shadow:0 2px 8px #a3c9b7aa;">
+            box-shadow:0 2px 8px #a3c9b7aa;
+            ">
             <b>ORÁCULO 🧑‍🚀:</b><br>{msg['resposta']}
         </div>
         """,
         unsafe_allow_html=True
     )
+    # Exibe o gráfico, se houver
+    if msg.get("figura") is not None:
+        st.pyplot(msg["figura"])
 
 # Aqui começa o form
 with st.form(key="form_pergunta", clear_on_submit=True):
@@ -109,12 +114,13 @@ with st.form(key="form_pergunta", clear_on_submit=True):
 if submitted and pergunta:
     with st.spinner("⏳ Agente está processando sua resposta..."):
         if produto == "Crédito":
-            resposta = consulta_credito(pergunta)
+            resposta, figura = consulta_credito(pergunta)
         if produto == "Cashback":
-            resposta = consulta_cashback_onboarding(pergunta)
+            resposta, figura = consulta_cashback_onboarding(pergunta)
     # Adiciona ao histórico
     st.session_state.chat_history.append({
         "pergunta": pergunta,
-        "resposta": resposta
+        "resposta": resposta,
+        "figura": figura
     })
     st.rerun()
