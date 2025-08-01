@@ -4,8 +4,6 @@ from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
-import io
-import base64
 import matplotlib.pyplot as plt
 
 path_file_credito = st.secrets["path_file_credito"]
