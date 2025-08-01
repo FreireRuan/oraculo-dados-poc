@@ -4,7 +4,6 @@ from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
-import matplotlib.pyplot as plt
 
 path_file_credito = st.secrets["path_file_credito"]
 
@@ -36,9 +35,6 @@ df_credito = load_df_credito()
 chat, memory = get_model_and_memory()
 
 def consulta_credito(pergunta, contexto_negocio='analista de credito'):
-    gerar_grafico = False
-    if "gráfico" in pergunta.lower() or "grafico" in pergunta.lower():
-        gerar_grafico = True
     prompt_template = ChatPromptTemplate.from_messages([
         ("system",
         "Você é um analista de negócios especialista em crédito pessoa física da MaisTODOS.\n"
@@ -139,23 +135,8 @@ def consulta_credito(pergunta, contexto_negocio='analista de credito'):
         agent_type='tool-calling',
         allow_dangerous_code=True,
         max_iterations=10,
-        memory=memory
+        memory=memory  
     )
-    prompt = prompt_template.format_messages(
-        pergunta=pergunta,
-        contexto_negocio=contexto_negocio,
-        agent_scratchpad=[],
-        chat_history=[]
-    )
+    prompt = prompt_template.format_messages(pergunta=pergunta, contexto_negocio=contexto_negocio, agent_scratchpad=[], chat_history=[])
     resultado = agente.invoke(prompt)
-    texto_resposta = resultado['output']
-
-    fig = None 
-    if gerar_grafico:
-        fig, ax = plt.subplots()
-        df_credito['cliente_idade'].hist(ax=ax)
-        ax.set_title("Distribuição da idade dos clientes")
-        ax.set_xlabel("Idade")
-        ax.set_ylabel("Contagem")
-
-    return texto_resposta, fig
+    return resultado['output']
