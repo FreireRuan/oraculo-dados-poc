@@ -30,7 +30,7 @@ def load_df_cashback_onboarding():
 # Cache para modelo e memória
 @st.cache_resource
 def get_model_and_memory():
-    chat = ChatOpenAI(model= 'gpt-4-turbo')
+    chat = ChatOpenAI(model= 'gpt-4.1-nano')
     memory = ConversationBufferMemory(return_messages=True, memory_key='chat_history')
     return chat, memory
 
