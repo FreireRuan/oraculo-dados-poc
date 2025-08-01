@@ -9,6 +9,7 @@ def check_password():
     # Instruções de uso
     st.markdown("""
     ## Bem-vindo ao Agente de Dados MaisTODOS!  
+    ### Instruções de uso:
     - Escolha o produto (Cashback ou Crédito) após o login.
     - É sugestivo usar o primeiro prompt abaixo para ganhar entendimento sobre os agentes e os dados que o compõem:
         "Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?"   
