@@ -76,20 +76,20 @@ def consulta_cashback_onboarding(pergunta, contexto_negocio='onboarding cashback
          "2. **INSIGHTS**: Interprete os resultados e identifique padrões\n"
          "3. **RECOMENDAÇÕES**: Sugira ações práticas e específicas\n"
          "4. **PRÓXIMOS PASSOS**: Indique análises complementares se necessário\n\n"
+         " Só use os passos 3 e 4 quando necessário ou for pedido"
          
          "INSTRUÇÕES TÉCNICAS:\n"
-         "- Use matplotlib.pyplot ou seaborn para visualizações\n"
-         "- Para análises temporais, considere agrupamentos por mês/semana\n"
          "- Formate números grandes com separadores (ex: R$ 1.234.567,89)\n"
          "- Use percentuais quando apropriado\n"
          "- Sempre importe as bibliotecas necessárias no código\n\n"
+         "- Use tabelas, correlações e benchmarks do mercado para enriquecer a análise\n"
          
          "LIMITAÇÕES:\n"
          "Se não conseguir responder com os dados disponíveis, seja transparente sobre as limitações e sugira que dados adicionais seriam necessários."),
         MessagesPlaceholder(variable_name='chat_history'),
         ("user", 
          "Pergunta: {pergunta}\nContexto: {contexto_negocio}\n\n"
-         "INSTRUÇÃO: Analise o DataFrame usando pandas, gere visualizações quando apropriado, e forneça insights de negócio com recomendações práticas. "
+         "INSTRUÇÃO: Analise o DataFrame usando pandas, gere tabelas e forneça insights de negócio com recomendações práticas. "
          "Seja específico com números e percentuais, e sempre explique o significado dos resultados para o negócio. "
          "Lembre-se que estamos em 2025 e os dados refletem o programa de onboarding atual."),
         MessagesPlaceholder(variable_name='agent_scratchpad')

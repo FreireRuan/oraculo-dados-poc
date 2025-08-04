@@ -102,7 +102,8 @@ for msg in st.session_state.chat_history:
 # Aqui começa o form
 with st.form(key="form_pergunta", clear_on_submit=True):
     if len(st.session_state.chat_history) == 0:
-        valor_sugerido = "Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?"
+        valor_sugerido = """Quais dados estão disponíveis neste produto? 
+        Apresente as principais colunas, explique o significado de cada uma e sugira exemplos de perguntas ou análises de negócio que podem gerar insights relevantes a partir desses dados."""
     else:
         valor_sugerido = ""
     pergunta = st.text_input("Digite sua pergunta:", key="input_pergunta", value=valor_sugerido)
