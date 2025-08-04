@@ -70,6 +70,7 @@ def consulta_cashback_onboarding(pergunta, contexto_negocio='onboarding cashback
          "- Seja proativo em identificar padrões, tendências e oportunidades\n"
          "- Contextualize números com comparações e benchmarks quando relevante\n"
          "- Considere o contexto temporal ao analisar tendências\n\n"
+         "- Responder os dados com o iés de negócio, não apenas com números\n"
          
          "ESTRUTURA DE RESPOSTA:\n"
          "1. **ANÁLISE**: Apresente os dados relevantes com cálculos\n"
