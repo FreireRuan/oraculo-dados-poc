@@ -18,7 +18,7 @@ def check_password():
         ### Instruções de uso:
         - Escolha o produto (Cashback ou Crédito) após o login.
         - É sugestivo usar o primeiro prompt abaixo para ganhar entendimento sobre os agentes e os dados que o compõem:\n
-            > Apresente quais dados estão disponíveis. O que posso tirar de dúvidas e insights deles?  \n 
+            > "Quais dados estão disponíveis neste produto? Apresente as principais colunas, explique o significado de cada uma e sugira exemplos de perguntas ou análises de negócio que podem gerar insights relevantes a partir desses dados."
         - Após, fique aberto para realizar novas perguntas de negócio ou técnicas relacionadas aos produtos.
         - Aguarde o processamento e veja a resposta do Oráculo.    :)
         #### Criado por: Ruan Freire e Samuel Ferreira
@@ -102,8 +102,7 @@ for msg in st.session_state.chat_history:
 # Aqui começa o form
 with st.form(key="form_pergunta", clear_on_submit=True):
     if len(st.session_state.chat_history) == 0:
-        valor_sugerido = """Quais dados estão disponíveis neste produto? 
-        Apresente as principais colunas, explique o significado de cada uma e sugira exemplos de perguntas ou análises de negócio que podem gerar insights relevantes a partir desses dados."""
+        valor_sugerido = """"Quais dados estão disponíveis neste produto? Apresente as principais colunas, explique o significado de cada uma e sugira exemplos de perguntas ou análises de negócio que podem gerar insights relevantes a partir desses dados.""""
     else:
         valor_sugerido = ""
     pergunta = st.text_input("Digite sua pergunta:", key="input_pergunta", value=valor_sugerido)
