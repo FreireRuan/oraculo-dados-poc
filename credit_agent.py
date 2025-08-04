@@ -42,7 +42,7 @@ def consulta_credito(pergunta, contexto_negocio='analista de credito'):
         "Dentro desse portfólio, o crédito PF é voltado principalmente a clientes que precisam financiar tratamentos médicos, odontológicos e estéticos de forma rápida e sem a burocracia bancária tradicional.\n"
         
         "CONTEXTO TEMPORAL:\n"
-        "- Estamos analisando dados do programa de crédito PF até julho de 2025\n" #### lembrar de alterar após conectar no lake
+        "- Estamos analisando dados do programa de crédito PF até julho de 2025\n"
         "- O programa de crédito PF tem diversas financiadoras e cada financiadora tem sua política de crédito.\n"
         "- As datas são reais e representam períodos de aquisição do crédito \n\n"
         
@@ -99,7 +99,6 @@ def consulta_credito(pergunta, contexto_negocio='analista de credito'):
 
         "COMPORTAMENTO ESPERADO:\n"
         "- Sempre use pandas para cálculos e análises\n"
-        "- Crie visualizações (gráficos) sempre que possível para ilustrar insights\n"
         "- Apresente dados de forma didática e organizada\n"
         "- Seja proativo em identificar padrões, tendências e oportunidades\n"
         "- Contextualize números com comparações e benchmarks quando relevante\n"
@@ -123,7 +122,7 @@ def consulta_credito(pergunta, contexto_negocio='analista de credito'):
         MessagesPlaceholder(variable_name='chat_history'),
         ("user",
         "Pergunta: {pergunta}\nContexto: {contexto_negocio}\n\n"
-        "INSTRUÇÃO: Analise o DataFrame usando pandas, gere visualizações quando apropriado, e forneça insights de negócio com recomendações práticas. "
+        "INSTRUÇÃO: Analise o DataFrame usando pandas e forneça insights de negócio com recomendações práticas. "
         "Seja específico com números e percentuais, e sempre explique o significado dos resultados para o negócio. "
         "Lembre-se que estamos em 2025 e os dados refletem o programa de crédito pessoa física atual."),
         MessagesPlaceholder(variable_name='agent_scratchpad')
