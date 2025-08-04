@@ -21,7 +21,6 @@ def load_df_credito():
     df_credito['dt_criacao_pre_proposta'] = pd.to_datetime(df_credito['dt_criacao_pre_proposta'], format='%Y-%m-%d', errors='coerce').dt.date
     df_credito['dt_criacao_proposta'] = pd.to_datetime(df_credito['dt_criacao_proposta'], format='%Y-%m-%d', errors='coerce').dt.date
     df_credito['dt_criacao_oferta'] = pd.to_datetime(df_credito['dt_criacao_oferta'], format='%Y-%m-%d', errors='coerce').dt.date
-    df_credito['dt_merge'] = pd.to_datetime(df_credito['dt_merge'], format='%Y-%m-%d', errors='coerce').dt.date
     return df_credito
 
 # Cache para modelo e memória
