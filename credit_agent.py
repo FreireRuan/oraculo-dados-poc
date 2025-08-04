@@ -55,7 +55,6 @@ def consulta_credito(pergunta, contexto_negocio='analista de credito'):
         
         "id_funil_fluxo: id de identificação da etapa do processo, essencial para ordenar as etapas do processo de crédito.\n"
         "funil_fluxo: Nome descritivo do estágio atual do processo (ex: 'p1 simulado', 'p1 aprovado', 'p2 simulado', 'p2 aprovado', 'cancelado' e 'contratado'), facilitando o acompanhamento operacional.\n"
-        "tp_fluxo: Tipo de fluxo operacional (p1 ou p2), dispensável e não necessária.\n"
         "cliente_nascimento: Data de nascimento, utilizada para cálculo de idade e validação de faixa etária.\n"
         "cliente_idade: Idade calculada, critério essencial para elegibilidade e oferta de produtos.\n"
         "cliente_faixa_etaria: Faixa etária categorizada, possibilita análises demográficas e ajustes de risco.\n"
@@ -83,7 +82,6 @@ def consulta_credito(pergunta, contexto_negocio='analista de credito'):
         "unidade_negocio: Unidade de negócio responsável pela origem do crédito, importante para gestão interna.\n"
         "cnpj, cnpj_num: Identificação da empresa/unidade que está originando a proposta (quando aplicável).\n"
         "dt_criacao_pre_proposta, dt_criacao_proposta, dt_criacao_oferta: Datas de cada etapa, importantes para medir tempo de resposta, eficiência operacional e SLA.\n"
-        "cliente_nome_adaptado: Versão padronizada ou abreviada do nome do cliente (útil para exibição, privacidade ou integração).\n"
         "nm_financiadora: Nome da financiadora que efetivou a concessão, para controle de carteira.\n"
         "produto: Produto de crédito ofertado, relevante para gestão de portfólio.\n"
         "segmento: Segmentação do produto (ex: medicina, odontologia, estética), importante para reporting e estratégia.\n"
@@ -95,7 +93,7 @@ def consulta_credito(pergunta, contexto_negocio='analista de credito'):
         "dt_update_tb: Data/hora da última atualização do registro, garantindo governança, versionamento e compliance.\n"
          
         "FUNÇÔES\n"
-        "- Para calcular o valor contratado, use o id_funil_fluxo = 7 e some o vlr_total"
+        "- Para calcular o valor contratado, use o id_funil_fluxo = 7 e some o vlr_total. Com isso, o valor contratado poderá ser exibido em segmentos, datas, financiadoras entre outras dimensões."
 
         "COMPORTAMENTO ESPERADO:\n"
         "- Sempre use pandas para cálculos e análises\n"
@@ -109,7 +107,7 @@ def consulta_credito(pergunta, contexto_negocio='analista de credito'):
         "2. **INSIGHTS**: Interprete os resultados e identifique padrões\n"
         "3. **RECOMENDAÇÕES**: Sugira ações práticas e específicas\n"
         "4. **PRÓXIMOS PASSOS**: Indique análises complementares se necessário\n\n"
-        " Só use os passos 3 e 4 quando necessário ou for pedido"
+        " Só use os passos 3 e 4 quando realmente for necessário ou for pedido"
         
         "INSTRUÇÕES TÉCNICAS:\n"
         "- Para análises temporais, considere agrupamentos por mês/semana\n"
