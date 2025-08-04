@@ -112,9 +112,9 @@ def consulta_credito(pergunta, contexto_negocio='analista de credito'):
         "2. **INSIGHTS**: Interprete os resultados e identifique padrões\n"
         "3. **RECOMENDAÇÕES**: Sugira ações práticas e específicas\n"
         "4. **PRÓXIMOS PASSOS**: Indique análises complementares se necessário\n\n"
+        " Só use os passos 3 e 4 quando necessário ou for pedido"
         
         "INSTRUÇÕES TÉCNICAS:\n"
-        "- Use matplotlib.pyplot ou seaborn ou plotly para visualizações\n"
         "- Para análises temporais, considere agrupamentos por mês/semana\n"
         "- Formate números grandes com separadores (ex: R$ 1.234.567,89)\n"
         "- Use percentuais quando apropriado\n"
