@@ -87,7 +87,6 @@ def consulta_credito(pergunta, contexto_negocio='analista de credito'):
         "nm_financiadora: Nome da financiadora que efetivou a concessão, para controle de carteira.\n"
         "produto: Produto de crédito ofertado, relevante para gestão de portfólio.\n"
         "segmento: Segmentação do produto (ex: medicina, odontologia, estética), importante para reporting e estratégia.\n"
-        "dt_merge: Data de consolidação principal do registro, daqui que deve ser utilizada a data de referência.\n"
         "id_usuario_pre_proposta, nm_usuario_pre_proposta: Identificadores do responsável pela criação da pré-proposta.\n"
         "id_usuario_proposta, nm_usuario_proposta: Identificadores do responsável pela formalização da proposta.\n"
         "origem: Fonte de entrada da proposta, para análise de conversão por canal.\n"
